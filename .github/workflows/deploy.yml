@@ -1,0 +1,14 @@
+name: deploy
+on: workflow_dispatch
+permissions: {}
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - run: echo one
+  two:
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - run: echo two
