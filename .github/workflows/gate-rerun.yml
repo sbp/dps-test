@@ -1,0 +1,15 @@
+name: gate-rerun
+on: workflow_dispatch
+permissions: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo build
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - run: echo "publish ran on attempt $GITHUB_RUN_ATTEMPT"
+      - run: test "$GITHUB_RUN_ATTEMPT" != 1
